@@ -1,0 +1,18 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gndzdmxAvaloniaTools="clr-namespace:CustomDataGrid.Views">
+
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ControlTheme x:Key="{x:Type gndzdmxAvaloniaTools:CustomDataGrid}"
+                          TargetType="gndzdmxAvaloniaTools:CustomDataGrid"
+                          BasedOn="{StaticResource {x:Type DataGrid}}">
+            </ControlTheme>
+        </ResourceDictionary>
+
+        <!--Setting the RowDetails background to transparent in order to see the selection-->
+        <SolidColorBrush x:Key="DataGridDetailsPresenterBackgroundBrush" Color="Transparent" />
+    </Styles.Resources>
+
+</Styles>
+

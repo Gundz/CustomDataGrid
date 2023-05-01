@@ -3,15 +3,50 @@
         xmlns:vm="using:CustomDataGrid.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:CustomDataGrid.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CustomDataGrid.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="CustomDataGrid">
+        Title="CustomDataGrid"
+        x:CompileBindings="True" x:DataType="vm:MainWindowViewModel">
 
-    <Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <DockPanel>
+        <Border>
+            <views:CustomDataGrid
+                ItemsSource="{Binding Items}"
+                ShowGrid="False">
+                
+                <views:CustomDataGrid.Columns>
+                    
+                    <DataGridTextColumn Header="Id"
+                                        x:DataType="vm:DataGridItemViewModel"
+                                        Binding="{Binding Id}">
+                    </DataGridTextColumn>
+                    
+                    <DataGridTextColumn Header="Name"
+                                        x:DataType="vm:DataGridItemViewModel"
+                                        Binding="{Binding Name}">
+                    </DataGridTextColumn>
+                    
+                    <DataGridTextColumn Header="Last Name"
+                                        x:DataType="vm:DataGridItemViewModel"
+                                        Binding="{Binding LastName}">
+                    </DataGridTextColumn>
+                    
+                    <DataGridTextColumn Header="Date Of Birth"
+                                        x:DataType="vm:DataGridItemViewModel"
+                                        Binding="{Binding DateOfBirth}">
+                    </DataGridTextColumn>
+                    
+                </views:CustomDataGrid.Columns>
+                
+                <views:CustomDataGrid.RowDetailsTemplate>
+                    <DataTemplate DataType="vm:DataGridItemViewModel">
+                        <ContentPresenter Content="{Binding .}" />
+                    </DataTemplate>
+                </views:CustomDataGrid.RowDetailsTemplate>
+                
+            </views:CustomDataGrid>
+        </Border>
+    </DockPanel>
 </Window>

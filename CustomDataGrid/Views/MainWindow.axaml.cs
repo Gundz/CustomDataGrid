@@ -1,12 +1,11 @@
 using Avalonia.Controls;
 
-namespace CustomDataGrid.Views
+namespace CustomDataGrid.Views;
+
+public partial class MainWindow : Window
 {
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
